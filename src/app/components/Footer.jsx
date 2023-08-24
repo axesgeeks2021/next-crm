@@ -35,8 +35,7 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faChevronRight, faMapMarker, faThumbsUp, faLock, faLaptop, faMoneyBill, faTimes} from "@fortawesome/free-solid-svg-icons"
-import {faFacebook} from "@fortawesome/react-fontawesome"
+import { faChevronRight, faMapMarker, faThumbsUp, faLock, faLaptop, faMoneyBill, faTimes, faMapLocationDot} from "@fortawesome/free-solid-svg-icons"
 
 
 function Footer() {

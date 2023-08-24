@@ -70,7 +70,7 @@ function PackagesDetails(props) {
         try {
           const auth = localStorage.getItem('auth')
           const parseData = JSON.parse(auth)
-    
+
           const myHeaders = new Headers();
           myHeaders.append("Cookie", "PHPSESSID=b4th9dktt364lh1b1n9l32df27");
     
@@ -158,8 +158,6 @@ function PackagesDetails(props) {
         e.preventDefault()
         try {
           setButtonLoading(true)
-    
-          const key = localStorage.getItem('apikey')
           const myHeaders = new Headers();
           myHeaders.append("Cookie", "PHPSESSID=sshqppusshc51f54dmtjcc5n95");
     
