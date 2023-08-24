@@ -138,7 +138,7 @@ function Header() {
                                                                         ele?.data?.map((ele, idx) => {
                                                                             return (
                                                                                 <li key={idx} onClick={() => handleLink(idx, ele?.slug)}>
-                                                                                    <Link className="dropdown-item" href={{ pathname: ele?.slug }} >{ele.name}</Link>
+                                                                                    <Link className="dropdown-item" href={{ pathname: `${ele?.slug}.html` }} >{ele.name}</Link>
                                                                                 </li> //state={{ slug: ele?.slug }}
                                                                                 // href={ele?.page_url ? ele?.page_url : ele?.slug}
                                                                             )

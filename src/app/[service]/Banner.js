@@ -2,8 +2,14 @@
 
 import React, {useState} from 'react'
 
+import { useRouter } from 'next/navigation'
+import Loader from '../components/Loader'
+
 function Banner(props) {
 
+  const router = useRouter()
+
+  const [loading, setLoading] = useState(false)
   const [check, setCheck] = useState(true)
   const [buttonLoading, setButtonLoading] = useState(false)
   const [text, setText] = useState({
@@ -34,13 +40,13 @@ function Banner(props) {
       myHeaders.append("Cookie", "PHPSESSID=bmgfbspjccp452g2nshfq4bt34");
 
       const formdata = new FormData();
-      formdata.append("page_id", html?.data?.page_id);
+      formdata.append("page_id", props.service.data.page_id);
       formdata.append("name", name);
       formdata.append("email", email);
       formdata.append("mobile", mobile);
       formdata.append("subject", "");
       formdata.append("message", "");
-      formdata.append("page_name", html?.data?.slug);
+      formdata.append("page_name", props.service.data.slug);
 
       const requestOptions = {
         method: 'POST',
@@ -59,7 +65,7 @@ function Banner(props) {
               email: '',
               mobile: ''
             })
-            // return navigate('/thank-you')
+            return router.push('/thank-you')
           }
           // console.log(result)
         })
@@ -67,6 +73,10 @@ function Banner(props) {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  if(loading){
+    return <Loader />
   }
 
   return (
