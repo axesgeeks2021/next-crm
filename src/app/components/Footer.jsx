@@ -16,7 +16,7 @@ import indi from "../../assets/images/indi.webp"
 import inn from "../../assets/images/inn.webp"
 import comodo from "../../assets/images/comodo.png"
 import logo from "../../assets/images/logo.png"
-import mobileIcon from "../../assets/images/mobile.webp"
+import mobileIcon from "../../../public/mobile.webp"
 import google from "../../assets/images/google-play-icon.webp"
 import gIcon from "../../assets/images/g_icon.webp"
 import googleIcon from "../../assets/images/google.webp"
@@ -272,7 +272,7 @@ function Footer() {
                         style={{ background: "linear-gradient(100deg, rgba(252,200,19,1) 16%, rgba(255,231,93,1) 39%)", borderRadius: "25px", padding: "30px" }}>
                         <div className="row marginT20">
                             <div className="col-sm-4 col-xs-12 play_store" style={{ margin: "auto" }}>
-                                <Image src={gIcon} height={200} width={10}/>
+                                <Image src={mobileIcon} height={350} />
                             </div>
                             <div className="col-sm-8 col-xs-12 marginT20 app-check">
                                 <h3 className="custom-text" style={{ marginBottom: "10px" }}><strong>GET E-STARTUP INDIA IN YOUR <br />
