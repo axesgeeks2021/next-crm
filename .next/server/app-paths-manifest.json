@@ -1,5 +1,7 @@
 {
-  "/page": "app/page.js",
-  "/thank-you/page": "app/thank-you/page.js",
-  "/[service]/page": "app/[service]/page.js"
+  "/in-cart-detail/page": "app/in-cart-detail/page.js",
+  "/documents/page": "app/documents/page.js",
+  "/in-cart-listing/page": "app/in-cart-listing/page.js",
+  "/complete-order-listing/page": "app/complete-order-listing/page.js",
+  "/due-date/page": "app/due-date/page.js"
 }

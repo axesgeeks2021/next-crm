@@ -1,18 +1,122 @@
 "use client"
 
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import logo from "../../assets/images/e-startup.webp"
 import mobile from "../../assets/images/mobilev.png"
 import download from "../../assets/images/download.png"
 import google from "../../assets/images/google-play-icon.png"
 
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 import "bootstrap/dist/css/bootstrap.min.css"
 
 function page() {
 
+    const router = useRouter()
+
     const [buttonLoading, setButtonLoading] = useState(false)
+
+    const [loading, setLoading] = useState(false)
+
+    const [text, setText] = useState({
+        amount: "",
+        email: "",
+        mobile: "",
+
+    })
+
+    const fetchCreateOrder = async (e) => {
+        e.preventDefault()
+        try {
+            setLoading(true)
+            setButtonLoading(true)
+            const auth = localStorage.getItem('auth')
+            const parseData = JSON.parse(auth)
+
+            const myHeaders = new Headers();
+            myHeaders.append("Cookie", "PHPSESSID=b4th9dktt364lh1b1n9l32df27");
+
+            const requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+
+            fetch(`https://e-startupindia.com/lib/app/AHFI678SHJF23309FS/order/create-order-w/${parseData.user_id}/04/`, requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    setLoading(false)
+                    setButtonLoading(false)
+                    if (result?.status) {
+                        try {
+                            var options = {
+                                "key": "rzp_test_B9ekt06pNNhrac", // Enter the Key ID generated from the Dashboard
+                                "amount": result?.txn_details?.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                                "currency": "INR",
+                                "name": "E-startup", //your business name
+                                "description": "Payment Page",
+                                "image": logo,
+                                "order_id": result?.txn_details?.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                                "handler": function (response) {
+                                    try {
+                                        const myHeaders = new Headers();
+                                        myHeaders.append("Cookie", "PHPSESSID=1umelcn801iobt7m98g43ph1s5");
+
+                                        const formdata = new FormData();
+                                        formdata.append("amount", result?.txn_details?.amount);
+                                        formdata.append("order_id", result?.order_id);
+                                        formdata.append("transaction_id", response.razorpay_payment_id);
+
+                                        const requestOptions = {
+                                            method: 'POST',
+                                            headers: myHeaders,
+                                            body: formdata,
+                                            redirect: 'follow'
+                                        };
+
+                                        fetch("https://www.e-startupindia.com/lib/app/AHFI678SHJF23309FS/order/razorpay-payment-w/", requestOptions)
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                if (result.status) {
+                                                    router.push('/thank-you')
+                                                    return window.scrollTo(0, 0)
+                                                }
+                                            })
+                                            .catch(error => console.log('error', error));
+                                    } catch (error) {
+                                        console.log(error)
+                                    }
+                                },
+                                "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+                                    "name": parseData?.name, //your customer's name
+                                    "email": parseData?.email,
+                                    "contact": parseData?.mobile  //Provide the customer's phone number for better conversion rates 
+                                },
+                                "notes": {
+                                    "address": "Razorpay Corporate Office"
+                                },
+                                "theme": {
+                                    "color": "#3399cc"
+                                }
+                            };
+                            const rzp1 = new Razorpay(options);
+                            rzp1.on('payment.failed', (response) => {
+                                console.log('error', response)
+                            })
+
+                            rzp1.open();
+
+                        } catch (error) {
+                            console.log(error)
+                        }
+                    }
+                })
+                .catch(error => console.log('error', error));
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <>
@@ -21,7 +125,7 @@ function page() {
                     <div className="content-container">
                         <div className="content">
                             <div id="header-details">
-                                <div id="header-logo"><Image alt="merchant-logo" src={logo} style={{ width: "200px" }} />
+                                <div id="header-logo"><Image alt="merchant-logo" src={logo} width={400} height={180} />
                                 </div>
                             </div>
                             <div data-view-id="1" id="main-view" className="slider-view">
@@ -30,7 +134,7 @@ function page() {
                                     <div className="title-underline"></div>
                                 </div>
                                 <div id="form-section" className="">
-                                    <form className="UI-form " noValidate="">
+                                    <form className="UI-form " onSubmit={fetchCreateOrder}>
                                         <div>
                                             <div>
                                                 <div className="Field Field--required Field--amount Field--currency-1">

@@ -98,7 +98,7 @@ function Header() {
                     <li><Link href="https://www.e-startupindia.com/learn/" target='_blank'>Learning Resources</Link></li>
                     {
                         !user ? 
-                        <li><Link href="https://www.e-startupindia.com/login.html" >Login</Link></li> : null
+                        <li><Link href="/login" >Login</Link></li> : null
                     }
                     {
                         !user ? 

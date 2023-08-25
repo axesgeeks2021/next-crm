@@ -412,10 +412,10 @@ function Footer() {
                         </div>
                         <div className="col-sm-6 col-md-3 newfooter">
                             <h4>Our Popular Services</h4>
-                            <li><Link href="" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Company Formation</Link></li>
-                            <li><Link href="/check-new" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Trademark</Link></li>
-                            <li><Link href="/gst-registration" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> GST Registration</Link></li>
-                            <li><Link href="/iso-certification" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> ISO Certification</Link></li>
+                            <li><Link href="/private-limited-company.html" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Company Formation</Link></li>
+                            <li><Link href="/check-new.html" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Trademark</Link></li>
+                            <li><Link href="/gst-registration.html" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> GST Registration</Link></li>
+                            <li><Link href="/iso-certification.html" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> ISO Certification</Link></li>
                         </div>
                         <div className="col-sm-6 col-md-3 newfooter">
                             <h4>Terms &amp; Policy</h4>
@@ -426,7 +426,7 @@ function Footer() {
                         </div>
                         <div className="col-sm-6 col-md-3 newfooter">
                             <h4>Connect With Us</h4>
-                            <li><Link href="" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Live Chat</Link></li>
+                            <li><Link href="https://tawk.to/d344b4c38bff93fb03d7d55670c33b51099cfee7/popout/default/?$_tawk_popout=true&$_tawk_sk=574532e43fee027ee65c078e&$_tawk_tk=ceb8f39a7ebd67f7c068a77c90b3c336&v=488" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Live Chat</Link></li>
                             <li><Link href="/partner-with-us" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Partner with us</Link></li>
                             <li><Link href="/contact-us" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Contact Us</Link></li>
                             <li id="open_popup" style={{ color: "#ede9e9", cursor: 'pointer', fontWeight: '300' }} onClick={() => setShowModal(true)}><FontAwesomeIcon icon={faChevronRight} /> Suggestion and Feedback</li>

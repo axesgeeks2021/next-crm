@@ -12,17 +12,65 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/thank-you/page": [
+    "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/thank-you/page.css",
-      "static/chunks/app/thank-you/page.js"
+      "static/css/app/login/page.css",
+      "static/chunks/app/login/page.js"
+    ],
+    "/reset-password/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/reset-password/page.css",
+      "static/chunks/app/reset-password/page.js"
     ],
     "/[service]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/[service]/page.css",
       "static/chunks/app/[service]/page.js"
+    ],
+    "/dashboard/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/dashboard/page.css",
+      "static/chunks/app/dashboard/page.js"
+    ],
+    "/about-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/about-us/page.css",
+      "static/chunks/app/about-us/page.js"
+    ],
+    "/complete-order-listing/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/complete-order-listing/page.css",
+      "static/chunks/app/complete-order-listing/page.js"
+    ],
+    "/documents/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/documents/page.css",
+      "static/chunks/app/documents/page.js"
+    ],
+    "/due-date/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/due-date/page.css",
+      "static/chunks/app/due-date/page.js"
+    ],
+    "/in-cart-detail/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/in-cart-detail/page.css",
+      "static/chunks/app/in-cart-detail/page.js"
+    ],
+    "/in-cart-listing/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/in-cart-listing/page.js",
+      "static/css/app/in-cart-listing/page.css"
     ]
   }
 }
