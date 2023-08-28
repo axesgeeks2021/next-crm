@@ -1,7 +1,8 @@
 {
-  "/in-cart-detail/page": "app/in-cart-detail/page.js",
-  "/documents/page": "app/documents/page.js",
-  "/in-cart-listing/page": "app/in-cart-listing/page.js",
-  "/complete-order-listing/page": "app/complete-order-listing/page.js",
-  "/due-date/page": "app/due-date/page.js"
+  "/page": "app/page.js",
+  "/order-detail/page": "app/order-detail/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/login/page": "app/login/page.js",
+  "/[service]/page": "app/[service]/page.js",
+  "/open-order-listing/page": "app/open-order-listing/page.js"
 }

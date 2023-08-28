@@ -6,6 +6,9 @@ import "../../styles/style.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Loader from "../components/Loader";
 
+
+
+
 let loading = false
 
 const fetchData = async (url) => {

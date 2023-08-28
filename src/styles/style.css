@@ -2817,6 +2817,9 @@ button.marginT40.standard-btn.basic-btn {
 }
 
 /*service page css*/
+.card .basic .row .card-front{
+  padding: 0 !important;  
+}
 .card-back.flip {
   -webkit-transform: rotatey(0deg);
   -moz-transform: rotatey(0deg);
