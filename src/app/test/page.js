@@ -6,7 +6,7 @@ import Image from 'next/image'
 function page() {
   return (
     <div style={{background: 'white', padding: '5rem 4rem'}}>
-        <Image src="/images/newmobile.jpg" width={300} height={300} alt='new mobile'/>
+        <Image src="/static/images/newmobile.jpg" width={300} height={300} alt='new mobile'/>
     </div>
   )
 }
