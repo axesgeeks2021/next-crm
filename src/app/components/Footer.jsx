@@ -275,7 +275,7 @@ function Footer() {
                         style={{ background: "linear-gradient(100deg, rgba(252,200,19,1) 16%, rgba(255,231,93,1) 39%)", borderRadius: "25px", padding: "30px" }}>
                         <div className="row marginT20">
                             <div className="col-sm-4 col-xs-12 play_store" style={{ margin: "auto" }}>
-                                <Image src={'/images/mobile.webp'} height={350} width={350} />
+                                <Image src={'/images/newmobile.jpg'} height={350} width={350} />
                             </div>
                             <div className="col-sm-8 col-xs-12 marginT20 app-check">
                                 <h3 className="custom-text" style={{ marginBottom: "10px" }}><strong>GET E-STARTUP INDIA IN YOUR <br />
