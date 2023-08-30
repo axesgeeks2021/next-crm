@@ -112,7 +112,13 @@ body {
   background: #fff;
   box-shadow: 4px 13px 51px 7px rgba(10, 51, 80, .16);
 }
-
+.card-front {
+  padding: 0px!important;
+}
+.package_display .col-sm-4 {
+  width: 31%!important;
+  margin: 1%!important;
+}
 .popup_footer form {
   width: 50%;
   float: left;
