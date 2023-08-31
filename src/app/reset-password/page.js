@@ -37,37 +37,39 @@ function page(router) {
         try {
             setButtonLoading(true)
             const myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-            myHeaders.append("Cookie", "PHPSESSID=i23seqn0u32e278cj5tqajpur3");
-
-            const urlencoded = new URLSearchParams();
-            urlencoded.append("email_address", router.searchParams.email);
-            urlencoded.append("new_password", newPassword);
-
+            myHeaders.append("Cookie", "PHPSESSID=6md9nskk7tm2tblcnlb3kqvge6");
+            
+            const formdata = new FormData();
+            formdata.append("email_address", router.searchParams.email);
+            formdata.append("new_password", newPassword);
+            formdata.append("key", router.searchParams.key);
+            
             const requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: urlencoded,
-                redirect: 'follow'
+              method: 'POST',
+              headers: myHeaders,
+              body: formdata,
+              redirect: 'follow'
             };
-
+            
             fetch("https://www.e-startupindia.com/lib/app/AHFI678SHJF23309FS/profile/reset-password-w/", requestOptions)
-                .then(response => response.json())
-                .then(result => {
-                    setButtonLoading(false)
-                    if(result.status){
-                        setText({
-                            repeatPassword: "",
-                            newPassword: ""
-                        })
-                        toast.success(result.message)
-                        setTimeout(() => {
-                            return routers.push('/login')
-                        }, 200);
-                    }
-                    return toast.warn(result.warn)
-                })
-                .catch(error => console.log('error', error));
+              .then(response => response.json())
+              .then(result => {
+                console.log(result)
+                setButtonLoading(true)
+                if(result.status){
+                    setText({
+                        newPassword: "",
+                        repeatPassword: ""
+                    })
+                    toast.success(result.message)
+                    return routers.push('/login')
+                }
+
+                if(!result.status){
+                    return toast.warning(result.error)
+                }
+            })
+              .catch(error => console.log('error', error));
         } catch (error) {
             console.log(error)
         }

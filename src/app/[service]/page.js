@@ -8,39 +8,38 @@ import Loader from "../components/Loader";
 import Head from "next/head";
 
 
-
-
-let loading = false
-
 const fetchData = async (url) => {
   try {
-    loading = true
     const response = await fetch(
-      `https://sankalpitsolutions.com/ecms/api/service_info.php?slug=${url}`
-    );
-    const result = await response.json();
-    loading = false
+        `https://sankalpitsolutions.com/ecms/api/service_info.php?slug=${url}`
+      );
+      const result = await response.json();
     return result
   } catch (error) {
     console.log(error);
   }
 }
 
+export async function generateMetadata(router){
+
+  const data = await fetchData(router.params.service.substring(0, router.params.service.length - 5))
+
+  return{
+    title: data.data.tab_title,
+    description: data.data.meta_description,
+    keyword: data.data.meta_keyword
+  }
+}
+
 async function page(router) {
+
 
   const service = await fetchData(router.params.service.substring(0, router.params.service.length - 5))
 
-  if(loading){
-    return <Loader />
-  }
-  
   return (
     <>
-    <Head>
-      <title>Different Pages</title>
-    </Head>
       <Banner service={service} />
-      <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }}></div>
+      <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }}></div> : <h1>Loader</h1>
       <FaqDetails service={service} />
       <PackagesDetails service={service} />
     </>

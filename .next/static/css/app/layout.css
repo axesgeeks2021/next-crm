@@ -115,7 +115,13 @@ body {
   background: #fff;
   box-shadow: 4px 13px 51px 7px rgba(10, 51, 80, .16);
 }
-
+.card-front {
+  padding: 0px!important;
+}
+.package_display .col-sm-4 {
+  width: 31%!important;
+  margin: 1%!important;
+}
 .popup_footer form {
   width: 50%;
   float: left;
@@ -576,7 +582,9 @@ h5.custom-text {
 .navbar-brand {
   font-size: 1.4em;
 }
-
+li.nav-link {
+  font-size: 13px;
+}
 .navbar-dark .navbar-nav a.nav-link {
   color: #9d9d9d;
   font-size: 14px;
@@ -803,6 +811,7 @@ ul.nav.navbar-nav.navbar-right {
 
 .navbar-default .navbar-nav>li>a {
   color: #4e4b4b !important;
+  
 }
 
 .top ul li a {
@@ -928,7 +937,8 @@ span.navbar-toggler-icon {
 .dropdown-menu>li>a,
 .dropdown-menu.mega>.sub-menu>li>a {
   color: #888 !important;
-  position: relative
+  position: relative;
+  
 }
 
 .navbar-nav>li>a::before,
