@@ -6,7 +6,6 @@ const nextConfig = {
         domains: ["cdn.razorpay.com"],
         formats: ['image/webp']
     },
-
 }
 
 module.exports = nextConfig

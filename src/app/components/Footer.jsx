@@ -412,7 +412,7 @@ function Footer() {
                         </div>
                         <div className="col-sm-6 col-md-3 newfooter">
                             <h4>Our Popular Services</h4>
-                            <li><Link href="/private-limited-company.html" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Company Formation</Link></li>
+                            <li><Link href="/private-limited-company.html" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Private Limited Company</Link></li>
                             <li><Link href="/check-new.html" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Trademark</Link></li>
                             <li><Link href="/gst-registration.html" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> GST Registration</Link></li>
                             <li><Link href="/iso-certification.html" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> ISO Certification</Link></li>
