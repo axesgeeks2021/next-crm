@@ -9,9 +9,12 @@ import Image from 'next/image'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import { useRouter } from 'next/navigation'
 
 
 function page() {
+
+    const router = useRouter()
 
     const [loading, setLoading] = useState(false)
     const [buttonLoading, setButtonLoading] = useState(false)
@@ -194,7 +197,10 @@ function page() {
                     setButtonLoading(false)
                     if (result.status) {
                         setForgetEmail('')
-                        return toast.success(result.message)
+                        toast.success(result.message)
+                        return router.push('/reset-password')
+                        // setTimeout(() => {
+                        // }, 1300);
                     }
 
                     if (!result.status) {

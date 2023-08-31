@@ -7,18 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Loader from "../components/Loader";
 
 
-
-
-let loading = false
-
 const fetchData = async (url) => {
   try {
-    loading = true
     const response = await fetch(
-      `https://sankalpitsolutions.com/ecms/api/service_info.php?slug=${url}`
-    );
-    const result = await response.json();
-    loading = false
+        `https://sankalpitsolutions.com/ecms/api/service_info.php?slug=${url}`
+      );
+      const result = await response.json();
     return result
   } catch (error) {
     console.log(error);
@@ -27,16 +21,14 @@ const fetchData = async (url) => {
 
 async function page(router) {
 
+
   const service = await fetchData(router.params.service.substring(0, router.params.service.length - 5))
 
-  if(loading){
-    return <Loader />
-  }
   
   return (
     <>
       <Banner service={service} />
-      <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }}></div>
+      <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }}></div> : <h1>Loader</h1>
       <FaqDetails service={service} />
       <PackagesDetails service={service} />
     </>

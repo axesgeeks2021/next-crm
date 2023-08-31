@@ -16,6 +16,12 @@ import Typewriter from 'typewriter-effect';
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../styles/style.css"
 
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faPlay } from "@fortawesome/free-solid-svg-icons"
+
+
 function Index() {
 
   const textTyped = useRef(null)
@@ -391,8 +397,12 @@ function Index() {
             <h3>Our Work Process as Video</h3>
             <p>Watch the video to learn how we work for you….</p>
             <a href="https://www.youtube.com/watch?v=caYeIPII4rQ" target="_blank">
-              <span id="click_v" data-cf-modified-8ca156bfad9bb0971de7919b-><i className="fa fa-play" aria-hidden="true"
-                style={{ color: "#fff" }}></i></span> </a>
+              <span id="click_v" data-cf-modified-8ca156bfad9bb0971de7919b->
+                <FontAwesomeIcon icon={faPlay} color='#fff'/>
+                {/* <i className="fa fa-play" aria-hidden="true"
+                style={{ color: "#fff" }}> 
+                  </i>*/}
+                  </span> </a>
           </div>
           <div id="light">
           </div>

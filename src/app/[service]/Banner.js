@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import { useRouter } from 'next/navigation'
 import Loader from '../components/Loader'
@@ -9,7 +9,7 @@ function Banner(props) {
 
   const router = useRouter()
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [check, setCheck] = useState(true)
   const [buttonLoading, setButtonLoading] = useState(false)
   const [text, setText] = useState({
@@ -75,8 +75,20 @@ function Banner(props) {
     }
   }
 
+  useEffect(() => {
+    if(props.service !== {}){
+      setLoading(false)
+    }
+  }, [])
+
+
+
   if(loading){
-    return <Loader />
+    return(
+      <section style={{width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <Loader />
+      </section>
+    ) 
   }
 
   return (

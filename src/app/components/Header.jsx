@@ -125,8 +125,8 @@ function Header() {
                             {
                                 headerList?.data?.map((ele, idx) => {
                                     return (
-                                        <li className="nav-item" style={{ position: 'relative' }} key={idx} onMouseEnter={() => handleHover(idx)} onMouseLeave={() => setIsHover({ idx: null, status: false })}>
-                                            <li style={{ color: '#9d9d9d' }} className="nav-link active" aria-current="page" >{ele.name.replaceAll('amp;', '')}</li>
+                                        <li className="nav-item" style={{ position: 'relative',  }} key={idx} onMouseEnter={() => handleHover(idx)} onMouseLeave={() => setIsHover({ idx: null, status: false })}>
+                                            <li style={{ color: '#9d9d9d'}} className="nav-link active" aria-current="page" >{ele.name.replaceAll('amp;', '')}</li>
                                             <div className={`dropdown-menu ${isHover === idx ? 'show' : ''}`} >
                                                 <ul style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', width: 'auto', background: '#fff' }}>
                                                     {
