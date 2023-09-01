@@ -24,6 +24,8 @@ export async function generateMetadata(router){
 
   const data = await fetchData(router.params.service.substring(0, router.params.service.length - 5))
 
+  console.log('service data', data)
+
   return{
     title: data.data.tab_title,
     description: data.data.meta_description,
@@ -39,7 +41,7 @@ async function page(router) {
   return (
     <>
       <Banner service={service} />
-      <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }}></div> : <h1>Loader</h1>
+      <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }}></div>
       <FaqDetails service={service} />
       <PackagesDetails service={service} />
     </>

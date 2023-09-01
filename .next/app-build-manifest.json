@@ -17,18 +17,6 @@
       "static/chunks/main-app.js",
       "static/css/app/[service]/page.css",
       "static/chunks/app/[service]/page.js"
-    ],
-    "/reset-password/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/reset-password/page.css",
-      "static/chunks/app/reset-password/page.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/login/page.css",
-      "static/chunks/app/login/page.js"
     ]
   }
 }

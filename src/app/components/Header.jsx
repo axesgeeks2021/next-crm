@@ -51,7 +51,6 @@ function Header() {
                 .then(response => response.json())
                 .then(result =>{
                     setLoading(false)
-                    console.log(result)
                     setHeaderList(result)
                 } )
                 .catch(error => console.log('error', error));
