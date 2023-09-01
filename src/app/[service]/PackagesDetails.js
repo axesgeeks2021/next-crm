@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from "react-toastify"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import { faEye, faEyeSlash , faStar} from "@fortawesome/free-solid-svg-icons"
 
 function PackagesDetails(props) {
 
@@ -272,7 +272,8 @@ function PackagesDetails(props) {
                             {
                               [...Array(idx + 1)].map((_, idx) => {
                                 return (
-                                  <i className="fa fa-star" aria-hidden="true" key={idx} style={{ margin: '0 3px' }}></i>
+                                  <FontAwesomeIcon icon={faStar} key={idx}/>
+                                  // <i className="fa fa-star" aria-hidden="true" key={idx} style={{ margin: '0 3px' }}></i>
                                 )
                               })
                             }

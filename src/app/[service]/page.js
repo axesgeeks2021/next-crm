@@ -4,8 +4,6 @@ import PackagesDetails from "./PackagesDetails";
 
 import "../../styles/style.css"
 import "bootstrap/dist/css/bootstrap.min.css"
-import Loader from "../components/Loader";
-import Head from "next/head";
 
 
 const fetchData = async (url) => {
@@ -24,8 +22,6 @@ export async function generateMetadata(router){
 
   const data = await fetchData(router.params.service.substring(0, router.params.service.length - 5))
 
-  console.log('service data', data)
-
   return{
     title: data.data.tab_title,
     description: data.data.meta_description,
@@ -35,13 +31,12 @@ export async function generateMetadata(router){
 
 async function page(router) {
 
-
   const service = await fetchData(router.params.service.substring(0, router.params.service.length - 5))
 
   return (
     <>
       <Banner service={service} />
-      <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }}></div>
+      <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }}/>
       <FaqDetails service={service} />
       <PackagesDetails service={service} />
     </>

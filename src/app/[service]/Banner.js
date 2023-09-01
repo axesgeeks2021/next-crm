@@ -92,6 +92,12 @@ function Banner(props) {
   }
 
   return (
+    <>
+    <style jsx>{`
+      ${props.service.data.style}
+      `
+    }
+    </style>
     <div className="banner">
       <div className="container">
         <div className="innera" >
@@ -142,6 +148,7 @@ function Banner(props) {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
