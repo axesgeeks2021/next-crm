@@ -4,6 +4,8 @@ import PackagesDetails from "./PackagesDetails";
 
 import "../../styles/style.css"
 import "bootstrap/dist/css/bootstrap.min.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLink} from "@fortawesome/free-solid-svg-icons"
 
 
 const fetchData = async (url) => {

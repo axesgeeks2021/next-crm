@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Image from 'next/image'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import { faEye, faEyeSlash , faExternalLink} from "@fortawesome/free-solid-svg-icons"
 import { useRouter } from 'next/navigation'
 
 
