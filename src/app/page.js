@@ -19,10 +19,13 @@ import "../styles/style.css"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faPlay } from "@fortawesome/free-solid-svg-icons"
+import { faPlay, faPieChart } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from 'next/navigation';
 
 
 function Index() {
+
+  const router = useRouter()
 
   const textTyped = useRef(null)
 
@@ -68,7 +71,6 @@ function Index() {
 
   const fetchContactUs = (e) => {
     e.preventDefault()
-
     try {
       setButtonLoading(true)
       const myHeaders = new Headers();
@@ -94,13 +96,13 @@ function Index() {
         .then(response => response.json())
         .then(result => {
           if (result.status) {
-            setButtonLoading(false)
             setText({
               name: '',
               email: '',
               mobile: ''
             })
-            return navigate('/thank-you')
+            setButtonLoading(false)
+            return router.push('/thank-you')
           }
           // console.log(result)
         })
@@ -111,10 +113,7 @@ function Index() {
   }
 
 
-
-
   useEffect(() => {
-
 
     const interval = setInterval(handleNext, 3000)
 

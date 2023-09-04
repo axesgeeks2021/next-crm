@@ -27,6 +27,8 @@ import cii from "../../assets/images/cii.webp"
 import startup from "../../assets/images/startup.webp"
 import razorypay from "../../assets/images/razorpay.webp"
 
+import { useRouter } from 'next/navigation';
+
 // import mobileIcon from "/images/mobile.webp"
 
 
@@ -41,6 +43,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faMapMarker, faThumbsUp, faLock, faLaptop, faMoneyBill, faTimes, faMapMarked } from "@fortawesome/free-solid-svg-icons"
 
 function Footer() {
+
+    const router = useRouter()
 
     const [loading, setLoading] = useState(false)
     const [showModal, setShowModal] = useState(false)
@@ -103,8 +107,8 @@ function Footer() {
             fetch("https://www.e-startupindia.com/lib/app/AHFI678SHJF23309FS/order/feedback/", requestOptions)
                 .then(response => response.json())
                 .then(result => {
+                    setButtonLoading(false)
                     if (result.status) {
-                        setButtonLoading(false)
                         setText({
                             email: "",
                             message: '',
@@ -118,6 +122,7 @@ function Footer() {
                         window.scrollTo(0, 0)
                         return toast.success("Thank you for rating us.")
                     }
+                    return toast.warning(result.error)
                 })
                 .catch(error => console.log('error', error));
         } catch (error) {
@@ -165,8 +170,9 @@ function Footer() {
                             mobile: ''
                         })
                         setPopEventModal(false)
-                        return navigate('/thank-you')
+                        return router.push('/thank-you')
                     }
+                    return toast.warn(result.error)
                     // console.log(result)
                 })
                 .catch(error => console.log('error', error));
@@ -187,11 +193,11 @@ function Footer() {
     }
 
     useEffect(() => {
-        // function handleResize() {
-        // if(window.innerWidth > 500){
-        // return talkChat()
-        // }
-        // }
+        function handleResize() {
+            if (window.innerWidth > 500) {
+                return talkChat()
+            }
+        }
         // const script1 = document.createElement('script')
         // script1.src = GoogleTag
 
@@ -201,15 +207,13 @@ function Footer() {
         // const script3 = document.createElement('script')
         // script3.src = PushNotification
 
-        // window.addEventListener('resize', handleResize)
-        talkChat()
+        window.addEventListener('resize', handleResize)
 
-        // return window.removeEventListener('resize', handleResize)
+        return window.removeEventListener('resize', handleResize)
     }, [])
 
     return (
         <>
-            
             <div className="footer_strip">
                 <div className="inner_footer_s">
                     <p><a href="tel:+918881069069"><i className="fa fa-phone" aria-hidden="true"></i><br />Call</a></p>
@@ -223,7 +227,6 @@ function Footer() {
             <div className="popevent" onMouseEnter={functionRun ? handlePopEventModal : null}></div>
             <div className="overlay_footer" id="layout" style={{ display: popEventModal ? 'block' : '' }}>
                 <div className="popup_footer">
-
                     <i className="fa fa-times close" aria-hidden="true" onClick={() => setPopEventModal(false)}>
                         <FontAwesomeIcon icon={faTimes} />
                     </i>
@@ -275,7 +278,7 @@ function Footer() {
                         style={{ background: "linear-gradient(100deg, rgba(252,200,19,1) 16%, rgba(255,231,93,1) 39%)", borderRadius: "25px", padding: "30px" }}>
                         <div className="row marginT20">
                             <div className="col-sm-4 col-xs-12 play_store" style={{ margin: "auto" }}>
-                                <Image src="/images/newmobile.jpg" height={350} width={350} alt='mobile icon'/>
+                                <Image src="/images/newmobile.jpg" height={350} width={350} alt='mobile icon' />
                             </div>
                             <div className="col-sm-8 col-xs-12 marginT20 app-check">
                                 <h3 className="custom-text" style={{ marginBottom: "10px" }}><strong>GET E-STARTUP INDIA IN YOUR <br />
@@ -395,8 +398,6 @@ function Footer() {
                         </div>
                     </div>
                 </section>
-                <footer>
-                </footer>
             </div>
             <section className="footer">
                 <div className="container">
@@ -748,7 +749,6 @@ function Footer() {
                                 <div className="col-sm-12">
                                     <input type="email" required name="email" placeholder="Email" maxLength="100" value={email} onChange={handleText} />
                                 </div>
-
                             </div>
                             <textarea rows="2" name="message" required
                                 placeholder="Share your opinion about us to serve you better" maxLength="500" value={message} onChange={handleText} ></textarea>
