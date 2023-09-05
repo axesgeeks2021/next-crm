@@ -108,7 +108,7 @@ function Header() {
                     <div className="clear"></div>
                 </ul>
             </div>
-            <nav className="navbar navbar-expand-lg navbar-dark" style={{ zIndex: 10, width: '100%', top: '0', marginBottom: '5px', position: scroll > 200 ? 'fixed' : 'relative', background: "#fff", }}>
+            <nav className="navbar navbar-expand-lg navbar-dark" style={{ zIndex: 999, width: '100%', top: '0', marginBottom: '5px', position: scroll > 200 ? 'fixed' : 'relative', background: "#fff", }}>
                 <div className="container-fluid" >
                     <Link href="/" className="navbar-brand fw-bold"><img src="https://www.e-startupindia.com/theme/template/images/e-startup_logo.webp" alt="E-startupindia.com" data-lazyload-replaced="true" /></Link>
                     <button className={`navbar-toggler ${!isTrue ? 'collapsed' : ''}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={() => setIsTrue(true)}>

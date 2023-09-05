@@ -5724,7 +5724,29 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 .nav-item a:before {
 }
 
 @media (max-width:768px) {
-
+  ul.list-inline li {
+    padding: 1%;
+    width: 229px!important;
+}
+.why_l img {
+  height: auto;
+}
+#reviewid {
+ 
+  padding: 1% 1%!important}
+.Virtual img {
+  height: auto;
+}
+.about_r img {
+  height: auto;
+}
+.review-rate.reviewr img {
+  height: auto;
+}
+.list-inline {
+  display: flex;
+  justify-content: space-around;
+  width: 81.33%!important;}
   .partners_ban {
     height: 500px;
   }
@@ -8400,7 +8422,7 @@ form#myform input {
   font-size: 15px;
   margin-top: 5%;
   border: 1px solid #fff;
-  color: #fff;
+  color: #000;
   padding: 1% 2%;
   width: 100%;
 }

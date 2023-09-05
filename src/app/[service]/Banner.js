@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useRouter } from 'next/navigation'
 import Loader from '../components/Loader'
@@ -76,78 +76,78 @@ function Banner(props) {
   }
 
   useEffect(() => {
-    if(props.service !== {}){
+    if (props.service !== {}) {
       setLoading(false)
     }
   }, [])
 
 
 
-  if(loading){
-    return(
-      <section style={{width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+  if (loading) {
+    return (
+      <section style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Loader />
       </section>
-    ) 
+    )
   }
 
   return (
     <>
-    <style jsx>{`
-      ${props.service.data.style}
-      `
-    }
-    </style>
-    <div className="banner">
-      <div className="container">
-        <div className="innera" >
-          <div className="left" dangerouslySetInnerHTML={{ __html: props.service.data.heading_title.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll('&lt;', '<').replaceAll('&gt;', '>').replaceAll("&quot;", '"').replaceAll('className', 'class').replaceAll('classname', 'class').replaceAll('&amp;nbsp;', '') }}>
+      <style jsx>{`
+   ${props.service.data.style}
+   `
+      }
+      </style>
+      <div className="banner">
+        <div className="container">
+          <div className="innera" >
+            <div className="left" dangerouslySetInnerHTML={{ __html: props.service.data.heading_title.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll('&lt;', '<').replaceAll('&gt;', '>').replaceAll("&quot;", '"').replaceAll('className', 'class').replaceAll('classname', 'class').replaceAll('&amp;nbsp;', '') }}>
+            </div>
+            <img alt="" className="one" src="http://e-startup.co/image/1.webp" />
+            <div className="spin">
+              <div className="circle">&nbsp;</div>
+
+              <div className="circle">&nbsp;</div>
+
+              <div className="circle">&nbsp;</div>
+
+              <div className="circle">&nbsp;</div>
+            </div>
+            <div className="right">
+              <form onSubmit={fetchContactUs}>
+                <img alt="" className="two"
+                  src="http://e-startup.co/image/1.webp" />
+                <h2>Contact Support</h2>
+                <div className="in_put"><label htmlFor="name">Name:</label><br />
+                  <input required type="text" name='name' id='name' value={name} onChange={handleText} />
+                </div>
+                <div className="in_put"><label htmlFor="mobile">Mobile No.</label><br />
+                  <input pattern="\d{10}" required type="number" id='mobile' name='mobile' value={mobile.substring(0, 10)} onChange={handleText} />
+                </div>
+                <div className="in_put"><label htmlFor="email">Email Id</label><br />
+                  <input required type="text" name='email' id='email' value={email} onChange={handleText} />
+                </div>
+                <div className="in_put">
+                  <p className="what_in"><input style={{ cursor: 'pointer' }} checked={check} type="checkbox" value={check} onChange={() => setCheck(!check)} /> Send updates on Whatsapp</p>
+                  <span className="what_noti">I agree to <a href="/terms-and-conditions"
+                    target="_blank">terms</a> and <a href="/privacy-policy" target="_blank">privacy
+                      policy</a></span>
+                </div>
+
+                <div className="in_put">
+
+                  <button type="submit" id="loadMore" className="contact-us-btn" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    {!buttonLoading ?
+                      <h4>Submit</h4> :
+                      <div className='spinner' id="loader1"><span className='bounce1' style={{ background: '#fff' }}></span><span
+                        className='bounce2' style={{ background: '#fff' }}></span><span className='bounce3' style={{ background: '#fff' }}></span></div>
+                    }
+                  </button></div>
+              </form>
+            </div>
           </div>
-          <img alt="" className="one" src="http://e-startup.co/image/1.webp" />
-          <div className="spin">
-            <div className="circle">&nbsp;</div>
-
-            <div className="circle">&nbsp;</div>
-
-            <div className="circle">&nbsp;</div>
-
-            <div className="circle">&nbsp;</div>
-          </div>
-          <div className="right">
-          <form onSubmit={fetchContactUs}>
-            <img alt="" className="two"
-              src="http://e-startup.co/image/1.webp" />
-            <h2>Contact Support</h2>
-            <div className="in_put"><label htmlFor="name">Name:</label><br />
-              <input required type="text" name='name' id='name' value={name} onChange={handleText} />
-            </div>
-            <div className="in_put"><label htmlFor="mobile">Mobile No.</label><br />
-              <input pattern="\d{10}" required type="number" id='mobile' name='mobile' value={mobile.substring(0, 10)} onChange={handleText} />
-            </div>
-            <div className="in_put"><label htmlFor="email">Email Id</label><br />
-              <input required type="text" name='email' id='email' value={email} onChange={handleText} />
-            </div>
-            <div className="in_put">
-              <p className="what_in"><input style={{ cursor: 'pointer' }} checked={check} type="checkbox" value={check} onChange={() => setCheck(!check)} /> Send updates on Whatsapp</p>
-              <span className="what_noti">I agree to <a href="/terms-and-conditions"
-                target="_blank">terms</a> and <a href="/privacy-policy" target="_blank">privacy
-                  policy</a></span>
-            </div>
-
-            <div className="in_put">
-
-              <button type="submit" id="loadMore" className="contact-us-btn" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                {!buttonLoading ?
-                  <h4>Submit</h4> :
-                  <div class='spinner' id="loader1"><span class='bounce1'></span><span
-                    class='bounce2'></span><span class='bounce3' ></span></div>
-                }
-              </button></div>
-          </form>
-        </div>
         </div>
       </div>
-    </div>
     </>
   )
 }

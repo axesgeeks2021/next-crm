@@ -120,7 +120,8 @@ function Footer() {
                         setRatingNumber(0)
                         setShowModal(false)
                         window.scrollTo(0, 0)
-                        return toast.success("Thank you for rating us.")
+                        return router.push('/thank-you')
+                        // return toast.success("Thank you for rating us.")
                     }
                     return toast.warning(result.error)
                 })

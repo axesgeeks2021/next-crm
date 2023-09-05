@@ -12,11 +12,11 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/[service]/page": [
+    "/contact-us/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[service]/page.css",
-      "static/chunks/app/[service]/page.js"
+      "static/css/app/contact-us/page.css",
+      "static/chunks/app/contact-us/page.js"
     ],
     "/thank-you/page": [
       "static/chunks/webpack.js",
@@ -24,35 +24,17 @@
       "static/css/app/thank-you/page.css",
       "static/chunks/app/thank-you/page.js"
     ],
-    "/offers/page": [
+    "/[service]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/offers/page.css",
-      "static/chunks/app/offers/page.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/login/page.css",
-      "static/chunks/app/login/page.js"
+      "static/css/app/[service]/page.css",
+      "static/chunks/app/[service]/page.js"
     ],
     "/register/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/register/page.css",
       "static/chunks/app/register/page.js"
-    ],
-    "/customer-reviews/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/customer-reviews/page.css",
-      "static/chunks/app/customer-reviews/page.js"
-    ],
-    "/partner-with-us/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/partner-with-us/page.css",
-      "static/chunks/app/partner-with-us/page.js"
     ]
   }
 }
