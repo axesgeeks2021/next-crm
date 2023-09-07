@@ -40,7 +40,7 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faChevronRight, faMapMarker, faThumbsUp, faLock, faLaptop, faMoneyBill, faTimes, faMapMarked } from "@fortawesome/free-solid-svg-icons"
+import { faChevronRight, faMapMarker, faThumbsUp, faLock, faLaptop, faMoneyBill, faTimes, faPhone, faUser, faCommenting, faWhatsapp } from "@fortawesome/free-solid-svg-icons"
 
 function Footer() {
 
@@ -199,6 +199,8 @@ function Footer() {
                 return talkChat()
             }
         }
+
+        talkChat()
         // const script1 = document.createElement('script')
         // script1.src = GoogleTag
 
@@ -217,11 +219,10 @@ function Footer() {
         <>
             <div className="footer_strip">
                 <div className="inner_footer_s">
-                    <p><a href="tel:+918881069069"><i className="fa fa-phone" aria-hidden="true"></i><br />Call</a></p>
-                    <p id="open_in_m" onClick={() => setPopEventModal(!popEventModal)}><i className="fa fa-user-o" aria-hidden="true"></i><br />Enquiry</p>
-                    <p><a href="https://tawk.to/chat/57453277f633cc8d73fffb0a/default"><i className="fa fa-commenting"
-                        aria-hidden="true"></i><br /> Live Chat</a></p>
-                    <p><a href="https://wa.me/+917065004032"><i className="fa fa-whatsapp" aria-hidden="true"></i><br />Whatsapp</a>
+                    <p><a href="tel:+918881069069"><FontAwesomeIcon icon={faPhone} /><br />Call</a></p>
+                    <p id="open_in_m" onClick={() => setPopEventModal(!popEventModal)}><FontAwesomeIcon icon={faUser} /><br />Enquiry</p>
+                    <p><a href="https://tawk.to/chat/57453277f633cc8d73fffb0a/default"><FontAwesomeIcon icon={faCommenting} /><br /> Live Chat</a></p>
+                    <p><a href="https://wa.me/+917065004032"><svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg><br />Whatsapp</a>
                     </p>
                 </div>
             </div>
@@ -428,7 +429,7 @@ function Footer() {
                         </div>
                         <div className="col-sm-6 col-md-3 newfooter">
                             <h4>Connect With Us</h4>
-                            <li><Link href="https://tawk.to/d344b4c38bff93fb03d7d55670c33b51099cfee7/popout/default/?$_tawk_popout=true&$_tawk_sk=574532e43fee027ee65c078e&$_tawk_tk=ceb8f39a7ebd67f7c068a77c90b3c336&v=488" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Live Chat</Link></li>
+                            <li><Link href="https://tawk.to/chat/57453277f633cc8d73fffb0a/default" target='_blank'><FontAwesomeIcon icon={faChevronRight} /> Live Chat</Link></li>
                             <li><Link href="/partner-with-us" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Partner with us</Link></li>
                             <li><Link href="/contact-us" onClick={() => window.scrollTo(0, 0)}><FontAwesomeIcon icon={faChevronRight} /> Contact Us</Link></li>
                             <li id="open_popup" style={{ color: "#ede9e9", cursor: 'pointer', fontWeight: '300' }} onClick={() => setShowModal(true)}><FontAwesomeIcon icon={faChevronRight} /> Suggestion and Feedback</li>

@@ -5690,6 +5690,8 @@ h1.hd {
 }
 ul.navbar-nav.me-auto.mb-2.mb-lg-0 li {
   width: 100%;
+  /* background-color: #007bff; */
+  /* position: absolute; */
 }
 .dropdown-menu.show {
   position: relative!important;
@@ -5741,6 +5743,9 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 .nav-item a:before {
   font-size: 30px;
   left: auto;
   background: transparent!important;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu{
+  left: 0;
 }
   .baner_p h2 {
     font-size: 27px;
