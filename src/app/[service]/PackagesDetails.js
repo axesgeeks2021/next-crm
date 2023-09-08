@@ -311,26 +311,26 @@ function PackagesDetails(props) {
                             <div className="input-icon">
                               <input type="text" placeholder="Name" name="name" value={name} onChange={handleText}
                                 maxlength="100" required />
-                                <FontAwesomeIcon icon={faUser} className="icofont icofont-ui-user"/>
+                                <FontAwesomeIcon icon={faUser} className="icofont icofont-ui-user" color='#000'/>
                   {/*<i className="icofont icofont-ui-user"></i> */}
                             </div>
                             <div className="input-icon">
                               <input type="email" placeholder="Email Address" name="email"
                                 value={email} maxlength="100" onChange={handleText} required />
-                                <FontAwesomeIcon icon={faEnvelope} className="icofont icofont-email"/>
+                                <FontAwesomeIcon icon={faEnvelope} className="icofont icofont-email" color='#000'/>
                  {/* <i className="icofont icofont-email"></i> */}
                             </div>
                             <div className="input-icon">
                               <input type="tel" placeholder="Mobile No." name="mobile" value={mobile} onChange={handleText}
                                 maxlength="10" required />
-                                <FontAwesomeIcon icon={faMobile} className="icofont icofont-mobile-phone" />
+                                <FontAwesomeIcon icon={faMobile} className="icofont icofont-mobile-phone" color='#000'/>
                  {/* <i className="icofont icofont-mobile-phone"></i>*/}
                             </div>
-                            <div className="input-icon " style={{ position: "relative", overflow: "hidden",  height: "40px" }}>
+                            <div className="input-icon " >
                               <input type="password" placeholder="Password" name="password" value={password} onChange={handleText}
-                                maxlength="10" required style={{ position: "absolute", top: 0, right: 0, bottom: 0, left: 0, width: "100%", minWidth: "100%" }}/>
+                                maxlength="10" required />
                               {
-                                showPassword ? <FontAwesomeIcon icon={faEye} color='#000' style={{ marginTop: '9px', cursor: 'pointer', position: "relative"}} onClick={() => setShowPassword(false)} /> : <FontAwesomeIcon icon={faEyeSlash} color='#000' style={{ marginTop: '9px', cursor: 'pointer', position: "relative" }} onClick={() => setShowPassword(true)} />
+                                showPassword ? <FontAwesomeIcon icon={faEye} color='#000' onClick={() => setShowPassword(false)} /> : <FontAwesomeIcon icon={faEyeSlash} color='#000' onClick={() => setShowPassword(true)} />
                               }
                             </div>
                             <p className="package-processing"></p>
@@ -351,7 +351,7 @@ function PackagesDetails(props) {
                             <div className="input-icon">
                               <input type="text" placeholder="Email Address" name="email"
                                 value={email} maxlength="100" onChange={handleText} required />
-                                <FontAwesomeIcon icon={faUser} className="icofont icofont-ui-user" />
+                                <FontAwesomeIcon icon={faUser} className="icofont icofont-ui-user" color='#000'/>
                              {/* <i className="icofont icofont-ui-user"></i> */}
                             </div>
                             <div style={{ position: "relative" }}>
