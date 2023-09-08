@@ -7,7 +7,8 @@ import { useRouter } from 'next/navigation'
 import { toast } from "react-toastify"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash , faStar} from "@fortawesome/free-solid-svg-icons"
+import { faEye, faEyeSlash , faStar, faArrowLeft, faUser, faEnvelope, faMobile, faInr} from "@fortawesome/free-solid-svg-icons"
+import Head from 'next/head'
 
 function PackagesDetails(props) {
 
@@ -249,6 +250,7 @@ function PackagesDetails(props) {
     return () => subscribe
   }, [])
   return (
+    <>
     <section className="pacakage" id="e-startup_package">
       <div className="container">
         {packagesDetails?.detais?.length > 0 ?
@@ -273,14 +275,14 @@ function PackagesDetails(props) {
                               [...Array(idx + 1)].map((_, idx) => {
                                 return (
                                   <FontAwesomeIcon icon={faStar} key={idx}/>
-                                  // <i className="fa fa-star" aria-hidden="true" key={idx} style={{ margin: '0 3px' }}></i>
                                 )
                               })
                             }
                           </p>
                         </div>
                         <div className="pacakage-price">
-                          <h3><i className="fa fa-inr" aria-hidden="true"></i> {ele?.amount} <br /><small><i>Plus
+                          <h3>
+                          <FontAwesomeIcon icon={faInr} /> {ele?.amount} <br /><small><i>Plus
                             taxes</i></small></h3>
                         </div>
                         <div className="pacakage-content" dangerouslySetInnerHTML={{ __html: ele?.description }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: '6px' }}>
@@ -294,11 +296,12 @@ function PackagesDetails(props) {
                       </div>
                     </div>
                     <div className={`card-back ${packageIndex.index === idx ? 'flip' : ''}`}>
-                      <i className="fa fa-arrow-left gob" aria-hidden="true" onClick={() => setPackageIndex({
-                        index: -1,
-                        id: null,
-                        amount: 0
-                      })}></i>
+                    <FontAwesomeIcon className="fa fa-arrow-left gob" color='white' icon={faArrowLeft} onClick={() => setPackageIndex({
+                      index: -1,
+                      id: null,
+                      amount: 0
+                    })} />
+                      {/*<i className="fa fa-arrow-left gob" aria-hidden="true" ></i> */}
                       <div className="ui-form-01">
                         <form className="tab-1" style={{ display: !loginForm ? 'none' : 'block' }} onSubmit={signUp}>
                           <input type="hidden" name="signup_package" value="111159" />
@@ -308,17 +311,20 @@ function PackagesDetails(props) {
                             <div className="input-icon">
                               <input type="text" placeholder="Name" name="name" value={name} onChange={handleText}
                                 maxlength="100" required />
-                              <i className="icofont icofont-ui-user"></i>
+                                <FontAwesomeIcon icon={faUser} className="icofont icofont-ui-user"/>
+                  {/*<i className="icofont icofont-ui-user"></i> */}
                             </div>
                             <div className="input-icon">
                               <input type="email" placeholder="Email Address" name="email"
                                 value={email} maxlength="100" onChange={handleText} required />
-                              <i className="icofont icofont-email"></i>
+                                <FontAwesomeIcon icon={faEnvelope} className="icofont icofont-email"/>
+                 {/* <i className="icofont icofont-email"></i> */}
                             </div>
                             <div className="input-icon">
                               <input type="tel" placeholder="Mobile No." name="mobile" value={mobile} onChange={handleText}
                                 maxlength="10" required />
-                              <i className="icofont icofont-mobile-phone"></i>
+                                <FontAwesomeIcon icon={faMobile} className="icofont icofont-mobile-phone" />
+                 {/* <i className="icofont icofont-mobile-phone"></i>*/}
                             </div>
                             <div className="input-icon " style={{ position: "relative", overflow: "hidden",  height: "40px" }}>
                               <input type="password" placeholder="Password" name="password" value={password} onChange={handleText}
@@ -345,7 +351,8 @@ function PackagesDetails(props) {
                             <div className="input-icon">
                               <input type="text" placeholder="Email Address" name="email"
                                 value={email} maxlength="100" onChange={handleText} required />
-                              <i className="icofont icofont-ui-user"></i>
+                                <FontAwesomeIcon icon={faUser} className="icofont icofont-ui-user" />
+                             {/* <i className="icofont icofont-ui-user"></i> */}
                             </div>
                             <div style={{ position: "relative" }}>
                               <input type={!showPassword ? "password" : "text"} placeholder="Password" name="password"
@@ -381,6 +388,7 @@ function PackagesDetails(props) {
         </div>
       </div>
     </section>
+    </>
   )
 }
 

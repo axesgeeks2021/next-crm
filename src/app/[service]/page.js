@@ -4,9 +4,8 @@ import PackagesDetails from "./PackagesDetails";
 
 import "../../styles/style.css"
 import "bootstrap/dist/css/bootstrap.min.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLink } from "@fortawesome/free-solid-svg-icons"
-import Head from "next/head";
+import { Suspense } from "react";
+import Loader from "../components/Loader";
 
 
 const fetchData = async (url) => {
@@ -38,10 +37,12 @@ async function page(router) {
 
   return (
     <>
-      <Banner service={service} />
-      <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }} />
-      <FaqDetails service={service} />
-      <PackagesDetails service={service} />
+      <Suspense fallback={<Loader />}>
+        <Banner service={service} />
+        <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }} />
+        <FaqDetails service={service} />
+        <PackagesDetails service={service} />
+      </Suspense>
     </>
   )
 }

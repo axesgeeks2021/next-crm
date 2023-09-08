@@ -2485,12 +2485,14 @@ a.what_up {
   .right {
     overflow: hidden;
     padding: 3% 4%;
-    width: 85%;
+    width: 100%;
     margin: 0% 0%;
     float: none;
-    margin-left: 6%;
+    margin-left: 0%;
   }
-
+  .spin {
+    display: none;
+}
   .left h1 {
     color: #000;
     font-size: 23px;
@@ -3271,7 +3273,7 @@ input.submi_f {
 
 .ui-form-01-wraper p {
   font-size: 18px;
-  font-weight: 100;
+  font-weight: 600!important;
   cursor: pointer;
   margin-bottom: 20px;
   font-size: 16px;
@@ -3972,7 +3974,21 @@ form#contactus textarea {
   .about_l {
     width: 100%;
   }
-
+  .package_display .col-sm-4 {
+    width: 98%!important;
+}
+.review_l span {
+  margin-bottom: 6%;
+  display: block;
+}
+.moredetails_form {
+  margin-left: 0;
+}
+.review_l h1 {
+  font-size: 29px;
+  font-weight: 600;
+  color: #000;
+  line-height: 40px;}
   .box_01 {
     width: 100%;
   }
@@ -5744,6 +5760,11 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 .nav-item a:before {
   left: auto;
   background: transparent!important;
 }
+.dropdown-menu.show {
+  overflow: scroll;
+  max-height: 50%;
+  height: 300px;
+}
 .navbar-expand-lg .navbar-nav .dropdown-menu{
   left: 0;
 }
@@ -6011,6 +6032,7 @@ button.Show_More {
   cursor: pointer;
   outline: none;
 }
+
 
 /* On mouse-over */
 .sidenav a:hover,

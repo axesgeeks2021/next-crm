@@ -12,6 +12,8 @@ import profile from "../../assets/images/profile.png"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../../styles/style.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 function CustomerReview() {
 
@@ -84,14 +86,14 @@ function CustomerReview() {
                             <h1>E-Startup<br /> India<br /> reviews:<br />
                                 Stories from our customers</h1>
                             <div className="review-rate">
-                                <i className="fa fa-star fa-lg" aria-hidden="true"></i>
-                                <i className="fa fa-star fa-lg" aria-hidden="true"></i>
-                                <i className="fa fa-star fa-lg" aria-hidden="true"></i>
-                                <i className="fa fa-star fa-lg" aria-hidden="true"></i>
-                                <i className="fa fa-star-half-empty fa-lg" aria-hidden="true"></i>
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
                             </div>
                             <br />
-                            Our customers rate our services 4.9 on an average
+                            <span>Our customers rate our services 4.9 on an average</span>
                         </div>
                         <div className="review_r">
                             <iframe width="100%" height="312"

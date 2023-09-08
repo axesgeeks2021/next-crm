@@ -200,8 +200,6 @@ function Footer() {
             }
         }
 
-        talkChat()
-        // const script1 = document.createElement('script')
         // script1.src = GoogleTag
 
         // const script2 = document.createElement('script')
