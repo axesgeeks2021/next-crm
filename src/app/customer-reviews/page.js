@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 
 import gIcon from "../../assets/images/g_icon.webp"
 import boy from "../../assets/images/boy.jpg"
@@ -79,6 +79,7 @@ function CustomerReview() {
 
     return (
         <>
+        <Suspense fallback={<div style={{width: "100%", height: " 100vh", background: 'lime'}}><h1>Loading....................</h1></div>}>
             <div className="customer_r">
                 <div className="container">
                     <div className="re">
@@ -152,6 +153,7 @@ function CustomerReview() {
                 </div>
             </center>
             {/* <Paginate postsPerPage={postPerPage} totalPosts={reviews?.detais?.num_of_records} paginate={paginate} nextReviews={nextReviews}/> */}
+            </Suspense>
         </>
     )
 }

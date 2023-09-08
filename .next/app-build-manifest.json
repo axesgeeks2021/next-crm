@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/page": [
+    "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/[service]/page": [
       "static/chunks/webpack.js",
@@ -12,17 +12,22 @@
       "static/css/app/[service]/page.css",
       "static/chunks/app/[service]/page.js"
     ],
+    "/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/loading.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/customer-reviews/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/customer-reviews/page.css",
       "static/chunks/app/customer-reviews/page.js"
-    ],
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
     ]
   }
 }
