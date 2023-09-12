@@ -8,12 +8,15 @@ import { Suspense } from "react";
 import Loader from "../components/Loader";
 
 
+var loadingState = false
 const fetchData = async (url) => {
   try {
+    loadingState = true
     const response = await fetch(
       `https://sankalpitsolutions.com/ecms/api/service_info.php?slug=${url}`
     );
     const result = await response.json();
+    loadingState = false
     return result
   } catch (error) {
     console.log(error);
@@ -35,9 +38,21 @@ async function page(router) {
 
   const service = await fetchData(router.params.service.substring(0, router.params.service.length - 5))
 
+  // if (loadingState) {
+  //   return (
+  //     <section style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+  //       <h1 style={{ fontSize: '5rem', color: 'lightblue' }}>It's still loading.....</h1>
+  //     </section>
+  //   )
+  // }
+
   return (
     <>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={
+        <section style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Loader />
+        </section>
+      }>
         <Banner service={service} />
         <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }} />
         <FaqDetails service={service} />

@@ -76,7 +76,7 @@ function Banner(props) {
   }
 
   useEffect(() => {
-    if (props.service !== {}) {
+    if (props?.service !== {}) {
       setLoading(false)
     }
   }, [])
