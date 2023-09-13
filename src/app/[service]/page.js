@@ -6,6 +6,7 @@ import "../../styles/style.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Suspense } from "react";
 import Loader from "../components/Loader";
+import Loading from "./loading";
 
 
 var loadingState = false
@@ -48,11 +49,7 @@ async function page(router) {
 
   return (
     <>
-      <Suspense fallback={
-        <section style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Loader />
-        </section>
-      }>
+      <Suspense fallback={<Loading />}>
         <Banner service={service} />
         <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }} />
         <FaqDetails service={service} />
