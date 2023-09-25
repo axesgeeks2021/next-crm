@@ -22,23 +22,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPieChart } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from 'next/navigation';
 
-
 function Index() {
-
   const router = useRouter()
-
   const textTyped = useRef(null)
 
   const [buttonLoading, setButtonLoading] = useState(false)
-
   const [showModal, setShowModal] = useState(false)
-
   const [viewMore, setViewMore] = useState(false)
-
   const [checked, setChecked] = useState(true)
-
   const [index, setIndex] = useState(0);
-
   const [text, setText] = useState({
     name: "",
     email: "",
@@ -46,7 +38,7 @@ function Index() {
   })
 
   const { name, email, mobile } = text
-
+  
   const handleText = e => {
     if (mobile.length > 10) {
       alert("number can't be greater than 10 digits")
@@ -58,7 +50,7 @@ function Index() {
   }
 
   const length = 5
-
+  
   const handlePrevious = () => {
     const newIndex = index - 1
     setIndex(newIndex < 0 ? length - 1 : newIndex)
@@ -75,7 +67,7 @@ function Index() {
       setButtonLoading(true)
       const myHeaders = new Headers();
       myHeaders.append("Cookie", "PHPSESSID=bmgfbspjccp452g2nshfq4bt34");
-
+      
       const formdata = new FormData();
       formdata.append("page_id", "");
       formdata.append("name", name);
@@ -84,7 +76,7 @@ function Index() {
       formdata.append("subject", "");
       formdata.append("message", "");
       formdata.append("page_name", "index");
-
+      
       const requestOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -122,7 +114,7 @@ function Index() {
 
   return (
     <>
-      <section className="wow fadeIn example no-padding no-transition slider-top">
+    <section className="wow fadeIn example no-padding no-transition slider-top">
         <div style={{ minHeight: "50px" }}>
           <div id="slider1_container" style={{ position: "relative", margin: "0 auto", top: "0px", left: "0px", width: "100%", height: "500px", overflow: "hidden" }}>
             <div data-u="slides"
@@ -397,11 +389,11 @@ function Index() {
             <p>Watch the video to learn how we work for you….</p>
             <a href="https://www.youtube.com/watch?v=caYeIPII4rQ" target="_blank">
               <span id="click_v" data-cf-modified-8ca156bfad9bb0971de7919b->
-                <FontAwesomeIcon icon={faPlay} color='#fff'/>
+                <FontAwesomeIcon icon={faPlay} color='#fff' />
                 {/* <i className="fa fa-play" aria-hidden="true"
                 style={{ color: "#fff" }}> 
                   </i>*/}
-                  </span> </a>
+              </span> </a>
           </div>
           <div id="light">
           </div>

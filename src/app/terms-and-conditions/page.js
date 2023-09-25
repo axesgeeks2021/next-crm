@@ -63,4 +63,12 @@ function page() {
     )
 }
 
+
+export function generateMetadata({params}){
+    return{
+        title: 'Terms And Conditions',
+    }
+  }
+
+
 export default page

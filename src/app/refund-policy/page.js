@@ -25,4 +25,11 @@ function page() {
     )
 }
 
+
+export function generateMetadata({params}){
+    return{
+        title: 'Refund Policy',
+    }
+  }
+
 export default page

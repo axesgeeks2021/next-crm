@@ -17,4 +17,12 @@ function Thankyou() {
     )
 }
 
+
+export function generateMetadata({params}){
+    return{
+        title: 'Thank You',
+    }
+  }
+
+
 export default Thankyou

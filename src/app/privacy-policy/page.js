@@ -47,4 +47,11 @@ function page() {
     )
 }
 
+
+export function generateMetadata({params}){
+    return{
+        title: 'Privacy-Policy',
+    }
+  }
+
 export default page

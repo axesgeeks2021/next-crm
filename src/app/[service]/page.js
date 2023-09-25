@@ -5,7 +5,6 @@ import PackagesDetails from "./PackagesDetails";
 import "../../styles/style.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Suspense } from "react";
-import Loader from "../components/Loader";
 import Loading from "./loading";
 
 
@@ -31,7 +30,11 @@ export async function generateMetadata(router) {
   return {
     title: data.data.tab_title,
     description: data.data.meta_description,
-    keyword: data.data.meta_keyword
+    keywords: data.data.meta_keyword,
+    openGraph: {
+      title: data.data.tab_title,
+      description: data.data.meta_description
+    }
   }
 }
 
@@ -39,21 +42,13 @@ async function page(router) {
 
   const service = await fetchData(router.params.service.substring(0, router.params.service.length - 5))
 
-  // if (loadingState) {
-  //   return (
-  //     <section style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-  //       <h1 style={{ fontSize: '5rem', color: 'lightblue' }}>It's still loading.....</h1>
-  //     </section>
-  //   )
-  // }
-
   return (
     <>
       <Suspense fallback={<Loading />}>
         <Banner service={service} />
         <div dangerouslySetInnerHTML={{ __html: service.data.description?.replaceAll("&amp;quot;", '"').replaceAll("&amp;#39;", "'").replaceAll("amp;", "").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", '"').replaceAll("className", "class").replaceAll("classname", "class").replaceAll("&amp;nbsp;", "") }} />
-        <FaqDetails service={service} />
         <PackagesDetails service={service} />
+        <FaqDetails service={service} />
       </Suspense>
     </>
   )

@@ -18,4 +18,12 @@ function page() {
     )
 }
 
+
+export function generateMetadata({params}){
+    return{
+        title: 'Confidentiality Policy',
+    }
+  }
+  
+
 export default page

@@ -14,6 +14,22 @@
   margin-top: 4%!important;
   display: inline-block;
   font-size: 18px;}
+  ul.list-inline li svg {
+    width: 25px;
+    height: 25px;
+    background: #fce113;
+    border-radius: 50px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 24px;
+    color: #000;
+    margin-right: 4%;
+}
+ul.list-inline li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 :root {
   --white: #fff;
   --black: #000;
@@ -643,7 +659,7 @@ li.login-btn:after {
 }
 
 .dropdown-menu.show ul ul {
-  width: 230px;
+  width: 220px;
 }
 
 .dropdown-item {
@@ -685,7 +701,7 @@ li.login-btn:after {
 
 .dropdown-menu li .dropdown-item {
   color: gray;
-  font-size: 15px;
+  font-size: 13px;
   padding: 3px 0%;
 }
 
@@ -842,14 +858,21 @@ span.navbar-toggler-icon {
   margin-bottom: 8px;
   opacity: 1;
 }
-
+p.sig {
+  text-transform: uppercase;
+}
 .navbar-expand-lg .navbar-nav .dropdown-menu {
   position: absolute;
-  left: -110%;
+  left: -103px;
   box-shadow: 12px 12px 24px 0 rgb(0 0 0 / 7%), -12px -12px 24px 0 rgba(255, 255, 255, 0.5);
   border-radius: 11px;
 }
-
+.ui-form-01-wraper p span{
+  text-transform: uppercase;
+}
+.review-rate.reviewr img {
+  height: auto;
+}
 @media (max-width: 1000px) {
   /* .navbar-nav{
     align-items: start;
@@ -3999,11 +4022,30 @@ a.aply {
 .top_ban h1 span {
   color: #fff;
 }
-
+.faq h2, .left{text-align: center;}
 .vacancy img {
-  width: 552px;
+  width: auto;
 }
 
+.faq h2:after {
+    content: '';
+    position: absolute;
+    right: 120px;
+    height: 5px;
+    background: #fcc813;
+    left: 48%;
+    bottom: -15px;
+    width: 49px;
+}
+span.in_lefta {
+  border: 1px solid #f1f1f1;
+  padding: 1%;
+  display: block;
+  text-align: center;
+  border-radius: 2px;
+  height: 39px;
+  line-height: 34px;
+}
 .top_ban p {
   color: #000;
   font-size: 25px;
@@ -4539,7 +4581,7 @@ span.close_popup {
   border: 1px solid #fdd736;
   color: #000;
   font-weight: 600;
-  line-height: 21px;
+  line-height: 26px;
   cursor: pointer;
 }
 
@@ -4613,7 +4655,7 @@ label.star {
 }
 
 .partners-box img {
-  width: 100%;
+  width: 100%;height:auto;
   margin-bottom: 11%;
 }
 
