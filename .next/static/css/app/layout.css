@@ -2977,7 +2977,7 @@ li.listmenuli {
   float: left;
   position: -webkit-sticky !important;
   position: sticky !important;
-  top: 0;
+  top: 0 !important;
 }
 
 li.listmenuli a {
@@ -10117,6 +10117,16 @@ input.Field-el {
   transform: translateY(100px);
 
 }
+.section-header h2::after {
+  content: "";
+  position: absolute;
+  right: 120px;
+  height: 5px;
+  background: #fcc813;
+  left: 48%;
+  bottom: -15px;
+}
+
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[5].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src\\app\\layout.js","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"} ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/

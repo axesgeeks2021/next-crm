@@ -1,5 +1,5 @@
 "use client"
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 function FaqDetails(props) {
 
@@ -8,30 +8,41 @@ function FaqDetails(props) {
 
     const fetchFAQDetails = async () => {
         try {
-          const myHeaders = new Headers();
-          myHeaders.append("Cookie", "PHPSESSID=bmgfbspjccp452g2nshfq4bt34");
-    
-          const requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
-            redirect: 'follow'
-          };
-    
-          const url = `https://www.e-startupindia.com/lib/app/AHFI678SHJF23309FS/faq/faq-list-w/${props.service.data.page_id}/`
-    
-          const res = await fetch(url, requestOptions)
-          const data = await res.json()
-          return setFaqDetails(data?.detais)
-        } catch (error) {
-          console.log(error)
-        }
-      }
+            const myHeaders = new Headers();
+            myHeaders.append("Cookie", "PHPSESSID=bmgfbspjccp452g2nshfq4bt34");
 
-      useEffect(() => {
+            const requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+
+            const url = `https://www.e-startupindia.com/lib/app/AHFI678SHJF23309FS/faq/faq-list-w/${props.service.data.page_id}/`
+
+            const res = await fetch(url, requestOptions)
+            const data = await res.json()
+            return setFaqDetails(data?.detais)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
         const subscribe = fetchFAQDetails()
 
+
+        // let navigation = document.querySelector('.navigation_list')
+        // window.addEventListener('scroll', () => {
+        //     const scroll = window.pageYOffset;
+        //     if(scroll > 400){
+        //         navigation.style.background = 'lime';
+        //     }
+        //     console.log(scroll)
+
+        //  })
+
         return () => subscribe
-      }, [])
+    }, [])
 
     return (
         <>

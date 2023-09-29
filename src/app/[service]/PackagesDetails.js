@@ -184,7 +184,7 @@ function PackagesDetails(props) {
         .then(result => {
           if (result.status === true) {
             localStorage.setItem('auth', JSON.stringify(result.detais))
-
+            fetchCreateLead(result?.detais?.name,result?.detais?.mobile, result?.detais?.email )
             const OrderData = fetchCreateOrder()
             setButtonLoading(false)
           }
@@ -203,7 +203,6 @@ function PackagesDetails(props) {
     e.preventDefault()
     try {
       setButtonLoading(true)
-      const key = localStorage.getItem('apikey')
       const myHeaders = new Headers();
       myHeaders.append("Cookie", "PHPSESSID=mj6c6i5mcnv328sgb4gl1dh5e5");
 
@@ -233,6 +232,8 @@ function PackagesDetails(props) {
             // toast.update(loadingId, { isLoading: false, autoClose: true })
             localStorage.setItem('auth', JSON.stringify(result.detais))
 
+            fetchCreateLead(result?.detais?.name,result?.detais?.mobile, result?.detais?.email )
+
             const OrderData = fetchCreateOrder()
             setButtonLoading(false)
           }
@@ -243,7 +244,6 @@ function PackagesDetails(props) {
       console.log(error)
     }
   }
-
 
   const emailSendForVerify = (e) => {
     e.preventDefault()
@@ -284,6 +284,40 @@ function PackagesDetails(props) {
     }
   }
 
+  
+  const fetchCreateLead = (name, mobile, email) => {
+    try {
+      setButtonLoading(true)
+      const myHeaders = new Headers();
+      myHeaders.append("Cookie", "PHPSESSID=4ub1np3ef9h7rtt1t56vs9ei43");
+
+      const formdata = new FormData();
+      formdata.append("ClientName", name);
+      formdata.append("ClientMobile", mobile);
+      formdata.append("ClientMessage", "");
+      formdata.append("LeadSource", "36");
+      formdata.append("LeadHost", "localhost");
+      formdata.append("LeadService", props?.service?.data?.service_id);
+      formdata.append("ClientEmail", email);
+
+      const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formdata,
+        redirect: 'follow'
+      };
+
+      fetch("https://www.e-startupindia.com/lib/app/AHFI678SHJF23309FS/order/create-lead-w/", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          setButtonLoading(false)
+          console.log(result)
+        })
+        .catch(error => console.log('error', error));
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const showForgetForm = () => {
     setForgetForm(false)

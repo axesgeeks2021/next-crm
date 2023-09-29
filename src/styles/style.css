@@ -3124,7 +3124,7 @@ li.listmenuli {
   width: 25%;
   float: left;
   position: sticky !important;
-  top: 0;
+  top: 0 !important;
 }
 
 li.listmenuli a {
@@ -10291,4 +10291,13 @@ input.Field-el {
 .slideDown{
   transform: translateY(100px);
 
+}
+.section-header h2::after {
+  content: "";
+  position: absolute;
+  right: 120px;
+  height: 5px;
+  background: #fcc813;
+  left: 48%;
+  bottom: -15px;
 }

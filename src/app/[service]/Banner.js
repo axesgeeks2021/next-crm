@@ -17,10 +17,11 @@ function Banner(props) {
     email: '',
     mobile: '',
     password: '',
-    username: ""
+    username: "",
+    message: ""
   })
 
-  const { email, mobile, name, password, username } = text
+  const { email,message, mobile, name, password, username } = text
 
   const handleText = e => {
     if (mobile.length > 10) {
@@ -32,21 +33,21 @@ function Banner(props) {
     setText({ ...text, [e.target.name]: e.target.value })
   }
 
-  const fetchContactUs = (e) => {
+  const fetchCreateLead = e => {
     e.preventDefault()
     try {
       setButtonLoading(true)
       const myHeaders = new Headers();
-      myHeaders.append("Cookie", "PHPSESSID=bmgfbspjccp452g2nshfq4bt34");
+      myHeaders.append("Cookie", "PHPSESSID=4ub1np3ef9h7rtt1t56vs9ei43");
 
       const formdata = new FormData();
-      formdata.append("page_id", props.service.data.page_id);
-      formdata.append("name", name);
-      formdata.append("email", email);
-      formdata.append("mobile", mobile);
-      formdata.append("subject", "");
-      formdata.append("message", "");
-      formdata.append("page_name", props.service.data.slug);
+      formdata.append("ClientName", name);
+      formdata.append("ClientMobile", mobile);
+      formdata.append("ClientMessage", message);
+      formdata.append("LeadSource", "36");
+      formdata.append("LeadHost", "localhost");
+      formdata.append("LeadService", props?.service?.data?.service_id);
+      formdata.append("ClientEmail", email);
 
       const requestOptions = {
         method: 'POST',
@@ -55,19 +56,19 @@ function Banner(props) {
         redirect: 'follow'
       };
 
-      fetch(`https://www.e-startupindia.com/lib/app/AHFI678SHJF23309FS/order/contact-message/`, requestOptions)
+      fetch("https://www.e-startupindia.com/lib/app/AHFI678SHJF23309FS/order/create-lead-w/", requestOptions)
         .then(response => response.json())
         .then(result => {
-          if (result.status) {
-            setButtonLoading(false)
+          setButtonLoading(false)
+          if(result){
             setText({
-              name: '',
-              email: '',
+              name: "",
+              email: "",
+              message:"",
               mobile: ''
             })
             return router.push('/thank-you')
           }
-          // console.log(result)
         })
         .catch(error => console.log('error', error));
     } catch (error) {
@@ -114,7 +115,7 @@ function Banner(props) {
               <div className="circle">&nbsp;</div>
             </div>
             <div className="right">
-              <form onSubmit={fetchContactUs}>
+              <form onSubmit={fetchCreateLead}>
                 <img alt="" className="two"
                   src="http://e-startup.co/image/1.webp" />
                 <h2>Contact Support</h2>
